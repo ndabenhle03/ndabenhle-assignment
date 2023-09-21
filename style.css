@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,600&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 2px grey;
+}
+::-webkit-scrollbar-thumb{
+    background: #0381ca;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(0deg, transparent, var(--bg-color), var(--bg-color),  var(--bg-color),  var(--text-color));
+
+}
+
+ *{
+    transition: 0.5s ease;
+} 
+
+body{
+    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    
+    
+}
+:root {
+    --text-color: #231f20;
+    --bg-color: #33b7e0;
+    
+}
+
+/* logo section--*/
+.logo {
+    display: flex;
+    background: rgba(128, 128, 128, 0.235);
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    
+    width: 100px;
+}
+
+.logo .website-name h1 {
+    color: var(--text-color);
+    
+}
+
+/* nav links */
+nav {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.824) ;
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+    
+}
+
+
+nav .links ul{
+    display: flex;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+nav .links ul li {
+    list-style-type: none;
+    margin: 12px;
+}
+
+nav .links ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 12px 12px;
+    /* border-radius: 0 0 20px 20px; */
+}
+
+nav .links ul li a:hover {
+    color: var(--bg-color);
+    border-bottom: 5px solid var(--bg-color);
+    /* padding: 12px ; */
+    transition: .3 ease;
+}
+
+/*-- intro --*/
+.intro  {
+    background: url('./images/147.jpg');
+    background-repeat: no-repeat;
+    margin-top: 12px;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    
+}
+.intro .content {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.644);
+}
+
+.intro .content h1, button {
+    display: flex;
+    margin-bottom: 12px;
+    /* align-items: center; */
+    position: relative;
+    top: 50%;
+    left: 3.9em;
+    font-size: 2.5em;
+}
+
+.intro .content h3 {
+    position: relative;
+    width: 50%;
+    top: 50%;
+    left: 8.5em;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.intro .content h1 span {
+    color: var(--bg-color);
+    margin-left: 5px;
+    font-weight: bold;
+    text-shadow: 0 5px 10px var(--bg-color);
+}
+
+.intro .content p {
+    position: relative;
+    width: 70%;
+    top: 50%;
+    left: 10em;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.intro .content button {
+    margin-top: 1.2em;
+    font-size: 1.5em;
+    padding: .7em 1.5em;
+    left: 6.5em;
+    background: transparent ;
+    outline: none;
+    border: 1px solid var(--bg-color);
+    border-radius: 40px;
+}
+
+.intro .content  button:hover {
+    /* background: var(--bg-color); */
+    border: transparent;
+    box-shadow: 5px 5px 10px var(--bg-color);
+}
+
+.intro .content  a button {
+    text-decoration: none;
+    color: #33b7e0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.intro .content  a {
+    text-decoration: none;
+}
+
+/* about section*/
+.about {
+    position: relative;
+}
+.about h1 {
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+.about h1 span {
+    color: var(--bg-color);
+    border-bottom: 5px solid var(--bg-color);
+}
+
+.about .about-content {
+    display: flex;
+    padding: 1.5em 10%;
+    background: #eee;
+    line-height: 1.65;
+    margin-top: 2em;
+}
+
+.about .about-content .about-info h4 {
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+    
+.about .about-content .about-info p {
+    color: var(--text-color);
+}
+
+.about .img img {
+    border-radius: 20px;
+
+}
+
+.about ol .item {
+    margin-bottom: 2em;
+    padding: 0 10%;
+    
+}
+
+.about .item2 a {
+    color: var(--bg-color);
+}
+
+/*- about separate html document-*/
+.about-content .info-card {
+    width: 70%;
+    text-align: left;
+    
+}
+
+
+.about-content .info-card table {
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.about-content .info-card table  th {
+    padding: 12px;
+}
+
+/*-- services */
+
+.services h1 {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.services hr {
+    width: 50px;
+    border-color: var(--bg-color);
+    outline: none;
+}
+
+.services-content{
+    margin-top: 2em;
+    position: relative;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 12px;
+}
+
+.services-content .services-info-cards {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px;
+	transition:1s;
+	background-image:sticky;
+	margin-left: 8px;
+	margin-right: px;
+}
+
+.services-content .services-info-cards:hover{
+	transform:scale(1.1);
+	margin: 0px 5px;
+	background:#ff000;
+	box-shadow:2px 2px 2px 2px;
+	opacity:1;
+	z-index:999;
+}
+
+.services-content .services-info-cards:nth-child(1)   {
+    background: url('./images/horse-5.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+	background-image: Solid;
+    
+    
+}
+.services-content .services-info-cards:nth-child(2) {
+    background: url('./images/horse-1.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(3) {
+    background: url('./images/horse-4.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(4) {
+    background: url('./images/Horse-House.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(5) {
+    background: url('./images/145.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(6) {
+    background: url('./images/oip.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(7) {
+    background: url('./images/horse-6.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+.services-content .services-info-cards:nth-child(8) {
+    background: url('./images/blog.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    
+}
+
+
+.services-content .services-info-cards .card {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  rgba(0, 0, 0, 0.502);
+    
+}
+
+.services-content .card .text  {
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 5px #000;
+    /* text-align: center; */
+    
+}
+
+
+/* team section  */
+.contacts h1{
+	text-align: center;
+	position: relative;
+}
+.team {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    gap: 2em;
+    background: #eee;
+    
+}
+
+
+.team .img img {
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+    margin-top:40px;
+    outline: 7px solid var(--bg-color);
+
+}
+
+.team .team-info {
+    text-align: center;
+}
+
+
+/* social media section */
+
+.social-media {
+    margin-top: 5em;
+}
+
+.social-media ul {
+    list-style-type: none;
+}
+
+.social-media .bx {
+    padding: 5px;
+    font-size: 1.5em;
+    color: var(--bg-color);
+} 
+
+
+
+/* register section */
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form-container .content {
+    padding: 0 3rem 0;
+    
+}
+.form-container .form__white h1 {
+    
+    color: var(--bg-color);
+}
+
+.form-container .content > * {
+    margin: 1rem 0 .1rem;
+    padding: 1rem 0 .5rem;
+    
+}
+
+
+.form-container .content 
+select, option, input{
+    background: transparent !important;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+}
+
+.form-container .form__white > *:focus{
+    border: 1px solid red;
+}
+
+.form-container .form__white   {
+    background: aliceblue;
+    border-radius: 12px 0 0 12px;
+    
+    
+}
+.form-container .form__white select, option {
+    color: #6e6e6e !important;
+}
+
+.form-container .form__white input[type="text"]:nth-of-type(2) {
+    float: right;
+    width: 51%;
+}
+
+.form-container .form__white input[type="text"]:nth-child(11) {
+    width: 55%;
+}
+
+/*---- form on the right ---*/
+.form-container .form__blue {
+    background: var(--bg-color);
+    border-radius: 0 12px 12px 0;
+}
+
+.form-container .form__blue input[type="text"], 
+input[type="tel"] {
+    color: red;
+}
+
+.form-container .form__blue input[type="radio"] {
+    accent-color: yellow;
+}
+
+.form-container .form__blue button {
+	top: 0;
+	left: 0;
+	background: var(--text-color);
+	outline: none;
+	border-radius: 20px 10px 20px 10px;
+	color: var(--bg-color);
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+.form__blue > h1, select, ::placeholder, label {
+    color: #fff;
+}
+
+
+
+.form-container .form__white ::placeholder {
+    transform: translateY(-1px);
+    color:  #6e6e6e ;
+}
+
+#employees {
+    width: 40%;
+    float: right;
+}
+
+/*---styling for the "select" tag ----*/
+.fullWidth {
+    width: 100%;
+}
+
+.footer {
+	padding-left:30em
+}
+
+
