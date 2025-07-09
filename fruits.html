@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="tractorlogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fruits - Greens&Things</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"><i class="fas fa-tractor"></i> Greens&Things</a>
+        <nav class="navbar">
+           <a href="index.html#home">home</a>
+           <a href="index.html#features">features</a>
+            <a href="index.html#products">products</a>
+            <a href="index.html#categories">categories</a>
+            <a href="index.html#review">review</a>
+            <a href="about.html">about us</a>
+        </nav>
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart cart-icon">
+                <span class="cart-count">0</span>
+            </div>
+            <!-- UPDATED: User icon now links to profile.html -->
+            <a href="profile.html" class="fas fa-user"></a>
+        </div>
+        <form action="" class="search-form">
+            <input type="text" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+            <div id="search-message" style="font-size: 1.4rem; padding: 0.5rem; text-align: center;"></div>
+        </form>
+        <div class="shopping-cart">
+            <div id="cartItems"></div>
+            <p class="total">total: R0.00/-</p>
+            <a href="#" class="btn" id="checkout-btn">Checkout</a>
+        </div>
+        <!-- REMOVED: Login form is no longer here -->
+        <div class="payment-form">
+            <i class="fas fa-times" id="closePaymentForm"></i>
+            <h3>Checkout</h3>
+            <div class="payment-container">
+                <div class="total-amount">
+                    <p>Total: <span id="checkoutTotal">R0.00</span></p>
+                </div>
+                <div class="payment-details">
+                    <form id="paymentForm">
+                        <div class="delivery-options">
+                            <label>
+                                <input type="radio" name="deliveryOption" value="delivery" checked> Delivery
+                            </label>
+                            <label>
+                                <input type="radio" name="deliveryOption" value="collection"> Collection
+                            </label>
+                        </div>
+                        <div class="address-form">
+                            <h4>Delivery Address</h4>
+                            <input type="text" placeholder="Street Address" class="box" required>
+                            <input type="text" placeholder="City" class="box" required>
+                            <input type="text" placeholder="Province" class="box" required>
+                            <input type="text" placeholder="Postal Code" class="box" pattern="\d{4}" required>
+                        </div>
+                        <h4>Payment Details</h4>
+                        <input type="text" placeholder="Cardholder Name" class="box" required>
+                        <div class="card-number-container">
+                            <input type="text" placeholder="Card Number (16 digits)" class="box card-number" pattern="\d{16}" required>
+                            <img src="pay.jpeg" alt="Visa" class="card-icon visa-icon">
+                           
+                        </div>
+                        <div class="card-details">
+                            <input type="text" placeholder="MM/YY" class="box" pattern="\d{2}/\d{2}" required>
+                            <input type="text" placeholder="CVV (3 digits)" class="box" pattern="\d{3}" required>
+                        </div>
+                        <button type="submit" class="btn">Pay Now</button>
+                    </form>
+                    <p id="paymentMessage"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products" id="fruit-products-display" style="padding-top: 10rem;">
+        <h2 class="heading">Our <span>Fruits</span></h2>
+        <div class="box-container" id="fruits-grid-container">
+            <!-- Fruit products will be dynamically loaded here by fruits.js -->
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html#products" class="btn">Back to All Products</a>
+        </div>
+    </section>
+
+    <!-- Feature Modals (copied from index.html for consistency) -->
+    <div class="feature-modal-overlay" id="feature-modal-overlay"></div>
+
+    <div class="feature-modal" id="delivery-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Delivery Details</h3>
+        <p>We offer fast and reliable delivery services directly to your location within the University of Mpumalanga campus and surrounding areas. Our delivery schedule is:</p>
+        <ul>
+            <li><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
+            <li><strong>Sunday:</strong> Closed</li>
+        </ul>
+        <p>A small delivery fee may apply depending on your distance from our collection point. You will see the exact fee at checkout.</p>
+        <p>Our delivery team handles your fresh produce with utmost care to ensure it arrives in perfect condition.</p>
+    </div>
+
+    <div class="feature-modal" id="collection-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Physical Collection Details</h3>
+        <p>You can choose to collect your order directly from our designated collection point at the University of Mpumalanga. This option is free of charge.</p>
+        <h4>Collection Point:</h4>
+        <p>UMP Agriculture Department, Main Campus, Mbombela</p>
+        <h4>Collection Hours:</h4>
+        <ul>
+            <li><strong>Monday - Friday:</strong> 8:30 AM - 4:30 PM</li>
+            <li><strong>Saturday:</strong> 9:30 AM - 1:30 PM</li>
+            <li><strong>Sunday:</strong> Closed</li>
+        </ul>
+        <p>Please bring your order confirmation email (digital or printed) for a smooth collection process. Orders are usually ready for collection within 2 hours of payment confirmation.</p>
+    </div>
+
+    <div class="feature-modal" id="payment-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Easy Payments</h3>
+        <p>We provide multiple secure and convenient payment options to make your shopping experience hassle-free:</p>
+        <ul>
+            <li><strong>Credit/Debit Card:</strong> We accept Visa and Mastercard. All transactions are encrypted and secure.</li>
+            <li><strong>EFT (Electronic Funds Transfer):</strong> Bank transfer details will be provided upon checkout if you select this option.</li>
+            <li><strong>Mobile Payments:</strong> Coming Soon!</li>
+        </ul>
+        <p>Your payment information is always protected, and we do not store sensitive card details on our servers.</p>
+        <p>Enjoy a seamless and secure checkout process with Greens&Things!</p>
+    </div>
+
+
+ <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Greens&Things <i class="fas fa-tractor"></i></h3>
+                <p>fresh and organic products for you</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="tel:+6344753340" class="links"><i class="fas fa-phone"></i> +6344753340</a>
+                <a href="https://www.ump.ac.za" class="links"><i class="fas fa-link"></i> www.ump.ac.za</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html#home" class="links"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#features" class="links"><i class="fas fa-arrow-right"></i> features</a>
+                <a href="index.html#products" class="links"><i class="fas fa-arrow-right"></i> product</a>
+                <a href="index.html#categories" class="links"><i class="fas fa-arrow-right"></i> categories</a>
+                <a href="index.html#review" class="links"><i class="fas fa-arrow-right"></i> review</a>
+                <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> about us</a>
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="Your Email" class="email">
+                <input type="submit" value="subscribe" class="btn">
+            </div>
+        </div>
+        <div class="credit">©copyright Greens&Things <span>All rights reserved</span></div>
+    </section>
+
+       <!-- Add these scripts BEFORE your own script.js -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBzYej4P9__rDR8X27eVqEc8baB-nSMR9Q",
+  authDomain: "greens-and-things-1ed5b.firebaseapp.com",
+  projectId: "greens-and-things-1ed5b",
+  storageBucket: "greens-and-things-1ed5b.firebasestorage.app",
+  messagingSenderId: "61805768793",
+  appId: "1:61805768793:web:58ecf557a57cb171418148",
+  measurementId: "G-PGYBHMT3Q3"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="fruits.js"></script> 
+</body>
+</html>

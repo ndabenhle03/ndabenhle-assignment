@@ -3,88 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White River horse Riding | About</title>
+    <title>About Greens&Things</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./logo-1-removebg-preview.png">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
-    <!--logo and website name -->
-    <div class="logo">
-        <a href="#"><img src="./Logos/logo-1-removebg-preview.png" alt="logo"></a>
-
-        <div class="website-name">
-            <h1>White River horse Riding</h1>
-        </div>
-    </div>
-
-        <!--nav links-->
-    <nav>
-        <div class="links">
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#services">services</a></li>
-                <li><a href="">contact</a></li>
-                <li><a href="">Register</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="about" id="about">
-        <h1>About <span>Us</span></h1>
-
-        <div class="about-content">
-            <div class="info-card">
-                <table border="1px solid #000">
-                    <tr>
-                        <th>Early Beginnings
-                            <td>The White River Horse Riding Business was established in the picturesque White River Valley in South Africa in 2015. It was founded by Shawn Douglas, a passionate equestrian and nature enthusiast. Shawn Douglas had a vision to share the beauty of the White River Valley and the joy of horseback riding with locals and tourists alike.</td>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th>Founding Principles
-                            <td>From its inception, the business was built on a foundation of respect for the environment, love for horses, and a commitment to providing safe and enjoyable riding experiences for people of all ages and skill levels. These principles set the tone for the business's growth and reputation over the years.</td>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th>Growth and Expansion
-                            <td>In its early years, White River Horse Riding Business started with just a handful of horses and a small team of dedicated staff. As word spread about the breathtaking landscapes and high-quality riding experiences offered, the business began to grow.Shawn Douglas worked tirelessly to expand the business, acquiring more land for trail riding and improving facilities for both riders and horses.</td>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th>Community Involvement
-                            <td>The business quickly became an integral part of the local community. It provided employment opportunities for residents, supported local events and charities, and promoted eco-friendly practices such as trail maintenance and waste reduction.</td>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th>Challenges and Triumphs
-                            <td>Over the years, White River Horse Riding faced its share of challenges, including economic downturns, natural disasters, and changing regulations. However, it persevered through these hardships, adapting to new circumstances and maintaining its commitment to providing memorable horseback riding adventures.</td>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Present Day
-                            <td>Today, White River Horse Riding Business continues to thrive, offering a range of riding experiences, from scenic trail rides to horseback camping trips. It has a dedicated customer base, both locally and from around the world, who appreciate its commitment to preserving the natural beauty of the White River Valley while sharing the joy of horse riding.</td>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Looking to the Future
-                            <td>The business has plans to further expand its offerings, such as introducing educational programs on horsemanship and environmental conservation. It remains a shining example of a sustainable and community-oriented horse riding business in the White River Valley</td>
-                        </th>
-                    </tr>
-                </table>
+    <!-- Header Section -->
+    <header class="header">
+        <a href="index.html" class="logo"> <i class="fas fa-tractor"></i> Greens&Things </a>
+        <nav class="navbar">
+            <a href="index.html#home">home</a>
+            <a href="index.html#features">features</a>
+            <a href="index.html#products">products</a>
+            <a href="index.html#categories">categories</a>
+            <a href="index.html#review">review</a>
+            <a href="about.html" class="active">about us</a>
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart cart-icon">
+                <span class="cart-count">0</span>
             </div>
-
-            <!-- <div class="img">
-                <img src="./images/horse-3.jpg" alt="">
-    
-            </div> -->
+            <a href="profile.html" class="fas fa-user"></a>
         </div>
-    </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+            <p id="search-message"></p>
+        </form>
+        <div class="shopping-cart">
+            <div id="cartItems"></div>
+            <div class="total">total: R0.00/-</div>
+            <a href="#" id="checkout-btn" class="btn">Checkout</a>
+        </div>
+        <div class="payment-form">
+            <i class="fas fa-times" id="closePaymentForm"></i>
+            <h3>Checkout</h3>
+            <div class="payment-container">
+                <div class="total-amount">
+                    <p>Total: <span id="checkoutTotal">R0.00</span></p>
+                </div>
+                <div class="payment-details">
+                    <form id="paymentForm">
+                        <div class="delivery-options">
+                            <label>
+                                <input type="radio" name="deliveryOption" value="delivery" checked> Delivery
+                            </label>
+                            <label>
+                                <input type="radio" name="deliveryOption" value="collection"> Collection
+                            </label>
+                        </div>
+                        <div class="address-form">
+                            <h4>Delivery Address</h4>
+                            <input type="text" placeholder="Street Address" class="box" required>
+                            <input type="text" placeholder="City" class="box" required>
+                            <input type="text" placeholder="Province" class="box" required>
+                            <input type="text" placeholder="Postal Code" class="box" pattern="\d{4}" required>
+                        </div>
+                        <h4>Payment Details</h4>
+                        <input type="text" placeholder="Cardholder Name" class="box" required>
+                        <div class="card-number-container">
+                            <input type="text" placeholder="Card Number (16 digits)" class="box card-number" pattern="\d{16}" required>
+                            <img src="pay.jpeg" alt="Visa" class="card-icon visa-icon">
+                           
+                        </div>
+                        <div class="card-details">
+                            <input type="text" placeholder="MM/YY" class="box" pattern="\d{2}/\d{2}" required>
+                            <input type="text" placeholder="CVV (3 digits)" class="box" pattern="\d{3}" required>
+                        </div>
+                        <button type="submit" class="btn">Pay Now</button>
+                    </form>
+                    <p id="paymentMessage"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="content">
+            <h1>About <span>Greens&Things</span></h1>
+            <p>Fresh, Organic, and Sustainable – Nourishing Mpumalanga’s Community. Discover our journey to bring the freshest produce from local farms to your table, fostering health and sustainability.</p>
+            <a href="#our-story" class="btn">Discover Our Story</a>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-section story" id="our-story">
+        <h2>Our <span>Story</span></h2>
+        <div class="content-box">
+            <div class="box">
+                <img src="ganda.jpg" alt="Local Farms">
+                <h3>From Humble Beginnings</h3>
+                <p>Greens&Things was founded in the heart of Mpumalanga with a vision to connect the University of Mpumalanga community and surrounding areas with the freshest organic produce. Our passionate team of agriculturalists works tirelessly to bridge the gap between local farms and your table.</p>
+            </div>
+            <div class="box">
+                <img src="farm.jpg" alt="Fresh Produce">
+                <h3>A Fresh Future</h3>
+                <p>We partner with local farmers dedicated to sustainable, chemical-free farming. Every fruit and vegetable is hand-picked at peak ripeness, ensuring unparalleled freshness. At Greens&Things, we’re cultivating a healthier, more connected community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="about-section mission">
+        <h2>Our <span>Mission</span></h2>
+        <div class="content-box">
+            <div class="box">
+                <img src="ukubambana.jpg" alt="Sustainable Farming">
+                <h3>Nourishing Communities</h3>
+                <p>Our mission is to provide wholesome, organic food while championing sustainable agriculture. We empower local farmers, promote eco-friendly practices, and make fresh produce accessible to all, fostering a greener, healthier South Africa.</p>
+            </div>
+            <div class="box">
+                <img src="umbila.jpg" alt="Transparency">
+                <h3>Building Trust</h3>
+                <p>Transparency is at our core. We’re committed to showing you where your food comes from, ensuring trust and quality in every order. Choose Greens&Things to support a movement for sustainability and community well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="about-section values">
+        <h2>Our <span>Values</span></h2>
+        <div class="content-box">
+            <div class="box">
+                <i class="fas fa-leaf"></i>
+                <h3>Fresh & Quality</h3>
+                <p>We deliver produce that meets the highest standards of taste and nutrition, hand-picked at its peak.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe"></i>
+                <h3>Sustainability</h3>
+                <p>Our eco-friendly farming methods protect the planet for future generations.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <h3>Community Focus</h3>
+                <p>We build strong relationships with local farmers and serve our customers with integrity.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-heart"></i>
+                <h3>Health & Well-being</h3>
+                <p>We promote a healthy lifestyle through accessible, wholesome food.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Modals -->
+    <section class="feature-modal" id="delivery-details">
+        <span class="fas fa-times close-feature-modal"></span>
+        <h3>Delivery Details</h3>
+        <p>We offer fast and reliable delivery services directly to your location within the University of Mpumalanga campus and surrounding areas. Our delivery schedule is:</p>
+        <ul>
+            <li>Monday - Friday: 9:00 AM - 5:00 PM</li>
+            <li>Saturday: 10:00 AM - 2:00 PM</li>
+            <li>Sunday: Closed</li>
+        </ul>
+        <p>A small delivery fee may apply depending on your distance from our collection point. You will see the exact fee at checkout.</p>
+        <p>Our delivery team handles your fresh produce with utmost care to ensure it arrives in perfect condition.</p>
+    </section>
+
+    <section class="feature-modal" id="collection-details">
+        <span class="fas fa-times close-feature-modal"></span>
+        <h3>Physical Collection Details</h3>
+        <p>You can choose to collect your order directly from our designated collection point at the University of Mpumalanga. This option is free of charge.</p>
+        <p><strong>Collection Point:</strong> UMP Agriculture Department, Main Campus, Mbombela</p>
+        <p><strong>Collection Hours:</strong></p>
+        <ul>
+            <li>Monday - Friday: 8:30 AM - 4:30 PM</li>
+            <li>Saturday: 9:30 AM - 1:30 PM</li>
+            <li>Sunday: Closed</li>
+        </ul>
+        <p>Please bring your order confirmation email (digital or printed) for a smooth collection process. Orders are usually ready for collection within 2 hours of payment confirmation.</p>
+    </section>
+
+    <section class="feature-modal" id="payment-details">
+        <span class="fas fa-times close-feature-modal"></span>
+        <h3>Easy Payments</h3>
+        <p>We provide multiple secure and convenient payment options to make your shopping experience hassle-free:</p>
+        <ul>
+            <li><strong>Credit/Debit Card:</strong> We accept Visa and Mastercard. All transactions are encrypted and secure.</li>
+            <li><strong>EFT (Electronic Funds Transfer):</strong> Bank transfer details will be provided upon checkout if you select this option.</li>
+            <li><strong>Mobile Payments:</strong> Coming Soon!</li>
+        </ul>
+        <p>Your payment information is always protected, and we do not store sensitive card details on our servers.</p>
+        <p>Enjoy a seamless and secure checkout process with Greens&Things!</p>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Greens&Things <i class="fas fa-tractor"></i></h3>
+                <p>Fresh and organic products for you</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="tel:+6344753340" class="links"><i class="fas fa-phone"></i> +6344753340</a>
+                <a href="tel:+6344753340" class="links"><i class="fas fa-phone"></i> +6344753340</a>
+                <a href="https://www.ump.ac.za" class="links"><i class="fas fa-link"></i> www.ump.ac.za</a>
+            </div>
+            <div class="box">
+                <a href="index.html#home" class="links"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#features" class="links"><i class="fas fa-arrow-right"></i> features</a>
+                <a href="index.html#products" class="links"><i class="fas fa-arrow-right"></i> product</a>
+                <a href="index.html#categories" class="links"><i class="fas fa-arrow-right"></i> categories</a>
+                <a href="index.html#review" class="links"><i class="fas fa-arrow-right"></i> review</a>
+                <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> about us</a>
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="Your Email" class="email">
+                <input type="submit" value="subscribe" class="btn">
+            </div>
+        </div>
+        <div class="credit">©copyright Greens&Things <span>All rights reserved</span></div>
+    </section>
+
+       <!-- Add these scripts BEFORE your own script.js -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBzYej4P9__rDR8X27eVqEc8baB-nSMR9Q",
+  authDomain: "greens-and-things-1ed5b.firebaseapp.com",
+  projectId: "greens-and-things-1ed5b",
+  storageBucket: "greens-and-things-1ed5b.firebasestorage.app",
+  messagingSenderId: "61805768793",
+  appId: "1:61805768793:web:58ecf557a57cb171418148",
+  measurementId: "G-PGYBHMT3Q3"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -2,261 +2,472 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="tractorlogo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White River horse Riding</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="./Logos/logo-1-removebg-preview.png">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <title>Greens&Things</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
-    <!--logo and website name -->
-    <div class="logo">
-        <a href="#"><img src="./Logos/logo-1-removebg-preview.png" alt="logo"></a>
-
-        <div class="website-name">
-            <h1>White River horse Riding</h1>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-tractor"></i> Greens&Things</a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#features">features</a>
+            <a href="#products">products</a>
+            <a href="#categories">categories</a>
+            <a href="#review">review</a>
+            <a href="about.html">about us</a> 
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart cart-icon">
+                <span class="cart-count">0</span>
+            </div>
+            <!-- UPDATED: User icon is now a link to the profile page -->
+            <a href="profile.html" class="fas fa-user"></a>
         </div>
-    </div>
-
-        <!--nav links-->
-    <nav>
-        <div class="links">
-            <ul>
-                <li><a href="index.html">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#services">services</a></li>
-                <li><a href="#contact">contact</a></li>
-                <li><a href="register.html">Register</a></li>
-            </ul>
+        <form action="" class="search-form">
+            <input type="text" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+            <div id="search-message" style="font-size: 1.4rem; padding: 0.5rem; text-align: center;"></div>
+        </form>
+        <div class="shopping-cart">
+            <div id="cartItems"></div>
+            <p class="total">total: R0.00/-</p>
+            <a href="#" class="btn" id="checkout-btn">Checkout</a>
         </div>
-    </nav>
-
-    <!-- intro-->
-
-    <div class="intro">
+        <!-- REMOVED: The login form element is deleted from here -->
+        <div class="payment-form">
+            <i class="fas fa-times" id="closePaymentForm"></i>
+            <h3>Checkout</h3>
+            <div class="payment-container">
+                <div class="total-amount">
+                    <p>Total: <span id="checkoutTotal">R0.00</span></p>
+                </div>
+                <div class="payment-details">
+                    <form id="paymentForm">
+                        <div class="delivery-options">
+                            <label>
+                                <input type="radio" name="deliveryOption" value="delivery" checked> Delivery
+                            </label>
+                            <label>
+                                <input type="radio" name="deliveryOption" value="collection"> Collection
+                            </label>
+                        </div>
+                        <div class="address-form">
+                            <h4>Delivery Address</h4>
+                            <input type="text" placeholder="Street Address" class="box" required>
+                            <input type="text" placeholder="City" class="box" required>
+                            <input type="text" placeholder="Province" class="box" required>
+                            <input type="text" placeholder="Postal Code" class="box" pattern="\d{4}" required>
+                        </div>
+                        <h4>Payment Details</h4>
+                        <input type="text" placeholder="Cardholder Name" class="box" required>
+                        <div class="card-number-container">
+                            <input type="text" placeholder="Card Number (16 digits)" class="box card-number" pattern="\d{16}" required>
+                            <img src="pay.jpeg" alt="Visa" class="card-icon visa-icon">
+                           
+                        </div>
+                        <div class="card-details">
+                            <input type="text" placeholder="MM/YY" class="box" pattern="\d{2}/\d{2}" required>
+                            <input type="text" placeholder="CVV (3 digits)" class="box" pattern="\d{3}" required>
+                        </div>
+                        <button type="submit" class="btn">Pay Now</button>
+                    </form>
+                    <p id="paymentMessage"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="home" id="home">
         <div class="content">
-            <h1>Welcome To <span> White River Horse Riding</span></h1>
-            <h3>We offer horse riding experiences for all levels of experience</h3>
-            <p>We have a variety of horses to choose from, and our experienced instructors will make sure you have a safe and enjoyable experience.</p>
-            
-
-
-
-            
-            <a href="#about"><button>Learn More...</button></a>
+            <h3>fresh and <span>organic</span> products for you</h3>
+            <p>Enhancing Access to Fresh Product: Streamlining the Fruit and Vegetable Purchasing Process for the University of Mpumalanga Community and Surrounding Areas.</p>
+            <a href="#products" class="btn">shop now</a>
         </div>
-        <!-- <video width="520" height="540" controls>
-            <source src="production.mp4" type="video/mp4">
-            </video> -->
-    </div>
-
-
-    <!--about section-->
-    <div class="about" id="about">
-        <h1>About <span>Us</span></h1>
-
-        <div class="about-content info">
-            <div class="about-info">
-                <h4>Early Beginnings: <span></span></h4>
-                <p>The White River Horse Riding business was established in the picturesque White River Valley in South Africa in 2015. it was founded by Shawn Douglas had a vision to share the beauty of the White river Valley and the joy of Horse Back Riding with locals and tourists alike</p>
-                <!-- <a href="about.html">Read More...</a> -->
-
-                <ol type="1">
-                    <li class="item1 item"><b>Founding Principle</b>
-                        <ul><br>
-                            <li>From its inception, the business was built on a foundation of respect for the environment, loce for horses, and a commitment to providing safe and enjoyable riding experiences for people of all ages and skill levels. These Principles set the tone for the business's growth and reputation over the years.</li>
-                        </ul>
-                        <li class="item2 item"><b>Growth and Expansion</b>
-                            <ul><br>
-                                <li>In its early years, White river horse riding business started with just a handful of horses and a small team of dedicated staff. As word spread about the breath taking landscapes and high quality riding experiences offered, the business began to grow. Shawn Douglas worked tirelessly to expand the business, acquiring more land for trail riding and improving facilities for both riders and horses</li>
-                                <a href="about.html">Read More...</a> 
-                            </ul>
-                        </li>
-                    </li>
-                    
-                </ol>
-
+    </section>
+    <section class="features" id="features">
+        <h2 class="heading">our <span>features</span></h2>
+        <div class="box-container">
+            <div class="box">
+                <img src="delivery.jpg" alt="Delivery Icon">
+                <h3>We Offer Delivery</h3>
+                <p>Allow UMP Agriculture take care of your health.</p>
+                <a href="#" class="btn read-more-btn" data-modal-target="delivery-modal">read more</a>
             </div>
-
-
-            <div class="img">
-                <img src="./images/horse-3.jpg" alt="">
-    
+            <div class="box">
+                <img src="ump logo.jpg" alt="Collection Icon">
+                <h3>physical collection</h3>
+                <p>Allow UMP Agriculture take care of your health.</p>
+                <a href="#" class="btn read-more-btn" data-modal-target="collection-modal">read more</a>
+            </div>
+            <div class="box">
+                <img src="payment.png" alt="Payment Icon">
+                <h3>easy payments</h3>
+                <p>Allow UMP Agriculture take care of your health.</p>
+                <a href="#" class="btn read-more-btn" data-modal-target="payment-modal">read more</a>
             </div>
         </div>
-    </div>
-
-    <!--services-->
-
-    <div class="services" id="services">
-        <h1>Services</h1>
-
-        <div class="services-content">
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Riding Lessons
-                            <li>We offer Rding Lessons to improve yor skills for all levels i.e.</li>
-                            <ul>
-                                <li>Biginner</li>
-                                <li>Intermediate</li>
-                                <li>Advanced</li>
-                            </ul>
-                        </ul>
+    </section>
+    <section class="products" id="products">
+        <h2 class="heading">our <span>products</span></h2>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box" data-name="fresh mango" data-price="100.00">
+                    <img src="mango.jpg" alt="Fresh Mango">
+                    <h3 data-name="fresh mango">fresh mango</h3>
+                    <div class="price">R100.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Horse Rental
-                            <li>provides access to well-trained horses for riders who do not own their own horses.</li>
-                        </ul>
+                <div class="swiper-slide box" data-name="fresh onion" data-price="10.00">
+                    <img src="onions.jpg" alt="Fresh Onion">
+                    <h3 data-name="fresh onion">fresh onion</h3>
+                    <div class="price">R10.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Horseback Riding
-                            <li>we organize guided horseback riding through beautiful areas for riders to explore.</li>
-                        </ul>
+                <div class="swiper-slide box" data-name="fresh green beans" data-price="150.00">
+                    <img src="green beans.jpg" alt="Fresh green beans">
+                    <h3 data-name="fresh green beans">fresh green beans</h3>
+                    <div class="price">R150.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Housing Services
-                            <li>Information on housing options for those who own horses and need a place to house them.</li>
-                        </ul>
+                <div class="swiper-slide box" data-name="fresh cabbage" data-price="20.00">
+                    <img src="cabbage.jpg" alt="Fresh cabbage">
+                    <h3 data-name="fresh cabbage">fresh cabbage</h3>
+                    <div class="price">R20.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Training Programs
-                            <li>Information on horse training and behavior programs. </li>
-                        </ul>
+                <div class="swiper-slide box" data-name="fresh butternut" data-price="25.00">
+                    <img src="butternut.jpg" alt="Fresh butternut">
+                    <h3 data-name="fresh butternut">fresh butternut</h3>
+                    <div class="price">R25.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Equine Health Resources 
-                            <li>Articles and advice on horse care, nutrition and health.</li>
-                        </ul>
+                <div class="swiper-slide box" data-name="fresh carrots" data-price="10.00">
+                    <img src="carrots.png" alt="Fresh carrots">
+                    <h3 data-name="fresh carrots">fresh carrots</h3>
+                    <div class="price">R10.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
+                    <button class="btn add-to-cart">add to cart</button>
                 </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Community and forums 
-                            <li>Create a space where drivers can interact, share experiences and ask questions.</li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="services-info-cards">
-                <div class="card ">
-                    <div class="text">
-                        <p></p>
-                        <ul>Blog and News Updates
-                            <li>We regularly publish articles, news and updates related to horse riding and equestrian culture.</li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    <!-- team section -->
-	
-	<div class="contacts" id="contacts">
-	<h1>Contacts</h1>
-	
-	
-    <div class="team">
-
-		
-		<div class="img">
-            <img src="./images/ndabenhle.jpg" alt="team-member">
-            <div class="team-info">
-                <p>Ndabenhle</p>
-                <p>+27 73 897 5309</p>
             </div>
         </div>
-        <div class="img">
-            <img src="./images/gift.jpeg" alt="team-member">
-            <div class="team-info">
-                <p>Gift</p>
-                <p>+27 71 485 3912</p>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box" data-name="fresh potato" data-price="9.00">
+                    <img src="potato.png" alt="Fresh potato">
+                    <h3 data-name="fresh potato">fresh potato</h3>
+                    <div class="price">R9.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
+                <div class="swiper-slide box" data-name="fresh corn" data-price="5.00">
+                    <img src="corn.png" alt="Fresh corn">
+                    <h3 data-name="fresh corn">fresh corn</h3>
+                    <div class="price">R5.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
+                <div class="swiper-slide box" data-name="fresh broccoli" data-price="10.00">
+                    <img src="broccoli.jpg" alt="Fresh broccoli">
+                    <h3 data-name="fresh broccoli">fresh broccoli</h3>
+                    <div class="price">R10.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
+                <div class="swiper-slide box" data-name="fresh spinach" data-price="10.00">
+                    <img src="spinach.jpg" alt="Fresh spinach">
+                    <h3 data-name="fresh spinach">fresh spinach</h3>
+                    <div class="price">R10.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
+                <div class="swiper-slide box" data-name="fresh beetroot" data-price="13.00">
+                    <img src="beetroot.jpg" alt="Fresh beetroot">
+                    <h3 data-name="fresh beetroot">fresh beetroot</h3>
+                    <div class="price">R13.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
+                <div class="swiper-slide box" data-name="fresh greenpepper" data-price="150.00">
+                    <img src="greenpepper.jpg" alt="Fresh greenpepper">
+                    <h3 data-name="fresh greenpepper">fresh greenpepper</h3>
+                    <div class="price">R150.00</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="btn add-to-cart">add to cart</button>
+                </div>
             </div>
         </div>
-        <div class="img">
-            <img src="./images/mzwakhe.jpeg" alt="team-member">
-            <div class="team-info">
-                <p>Mzwakhe</p>
-                <p>+27 76 078 2626</p>
+    </section>
+    <section class="categories" id="categories">
+        <h2 class="heading">product <span>categories</span></h2>
+        <div class="box-container">
+            <div class="box">
+                <img src="vegies.jpg" alt="Vegetables">
+                <h3>vegetables</h3>
+                <p>up to 45% off</p>
+                <a href="vegetables.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="fruits.jpg" alt="Fruits">
+                <h3>fruits</h3>
+                <p>up to 45% off</p>
+                <a href="fruits.html" class="btn">shop now</a>
             </div>
         </div>
-        <div class="img">
-            <img src="./images/hope.jpeg" alt="team-member">
-            <div class="team-info">
-                <p>Hope</p>
-                <p>+27 71 437 7783</p>
-            </div>
-        </div>
-        <div class="img">
-            <img src="./images/faith.jpeg" alt="team-member">
-            <div class="team-info">
-                <p>Vuyokazi</p>
-                <p>+27 66 409 2709</p>
-            </div>
-        </div>
-    </div>
+    </section>
 
-    <div class="social-media" id="contact">
-		
+    <section class="review" id="review">
+        <h2 class="services">Customer<span>Reviews</span></h2>
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img src="user1.jpg" alt="Shaun Mahlangu">
+                    <p>Ordering from Greens&Things was so easy! The website is user-friendly, and my fruits and veggies arrived fresh and perfectly packed. Will definitely shop here again!</p>
+                    <h3>Shaun Mahlangu</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="user2.jpg" alt="Sipho Mbokazi">
+                    <p>I loved the variety of organic options available on Greens&Things. Delivery was fast, and the produce was even better than I expected. Highly recommend!</p>
+                    <h3>Sipho Mbokazi</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="user3.jpg" alt="John Mabuza">
+                    <p>My first order arrived a day late, but customer service was quick to respond and resolved the issue. The vegetables were still fresh and delicious.</p>
+                    <h3>John Mabuza</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="user4.jpg" alt="Thapelo Ngoma">
+                    <p>The prices at Greens&Things are reasonable, and the quality is top-notch. The avocados I ordered were perfectly ripe—great for my salads!</p>
+                    <h3>Thapelo Ngoma</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="user5.jpg" alt="Steve Leo">
+                    <p>Disappointed with some wilted greens in my order, but the rest of the items were fine. Hopefully, next time everything will be fresh.</p>
+                    <h3>Steve Leo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Greens&Things <i class="fas fa-tractor"></i></h3>
+                <p>fresh and organic products for you</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> +6344753340</a>
+                <a href="#" class="links"><i class="fas fa-envelope"></i> www.ump.ac.za</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#features" class="links"><i class="fas fa-arrow-right"></i> features</a>
+                <a href="#products" class="links"><i class="fas fa-arrow-right"></i> product</a>
+                <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> categories</a>
+                <a href="#review" class="links"><i class="fas fa-arrow-right"></i> review</a>
+                <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> about us</a>
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <button class="btn">subscribe</button>
+                <img src="pay.jpeg" class="pay-img" alt="Payment Methods">
+            </div>
+        </div>
+        <div class="credit">©copyright Greens&Things <span>All rights reserved</span></div>
+    </footer>
+
+    <!-- Feature Modals -->
+    <div class="feature-modal-overlay" id="feature-modal-overlay"></div>
+
+    <div class="feature-modal" id="delivery-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Delivery Details</h3>
+        <p>We offer fast and reliable delivery services directly to your location within the University of Mpumalanga campus and surrounding areas. Our delivery schedule is:</p>
         <ul>
-            <li><i class='bx bxl-whatsapp'> +27 73 897 5309</i></li>
-            <li><i class='bx bxl-instagram'> @White_River_Horse_Riding.co.za</i></li>
-            <li><i class='bx bxl-facebook' > @WhiteRiverHorseRiding.co.za</i></li>
+            <li><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
+            <li><strong>Sunday:</strong> Closed</li>
         </ul>
+        <p>A small delivery fee may apply depending on your distance from our collection point. You will see the exact fee at checkout.</p>
+        <p>Our delivery team handles your fresh produce with utmost care to ensure it arrives in perfect condition.</p>
     </div>
-	
-	<div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.1442190604403!2d30.980273558940535!3d-25.43628926445002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee835ddde836b49%3A0xfe875f0851caa5cf!2sUniversity%20of%20Mpumalanga!5e1!3m2!1sen!2sza!4v1694205239293!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-	
-    <div class="fute">
-    <p>&copy <span>Copyright 2023 White River Horse Riding | All Rights Reserved. Privacy Policy</p>
-	</div>
+
+    <div class="feature-modal" id="collection-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Physical Collection Details</h3>
+        <p>You can choose to collect your order directly from our designated collection point at the University of Mpumalanga. This option is free of charge.</p>
+        <h4>Collection Point:</h4>
+        <p>UMP Agriculture Department, Main Campus, Mbombela</p>
+        <h4>Collection Hours:</h4>
+        <ul>
+            <li><strong>Monday - Friday:</strong> 8:30 AM - 4:30 PM</li>
+            <li><strong>Saturday:</strong> 9:30 AM - 1:30 PM</li>
+            <li><strong>Sunday:</strong> Closed</li>
+        </ul>
+        <p>Please bring your order confirmation email (digital or printed) for a smooth collection process. Orders are usually ready for collection within 2 hours of payment confirmation.</p>
+    </div>
+
+    <div class="feature-modal" id="payment-modal">
+        <i class="fas fa-times close-feature-modal"></i>
+        <h3>Easy Payments</h3>
+        <p>We provide multiple secure and convenient payment options to make your shopping experience hassle-free:</p>
+        <ul>
+            <li><strong>Credit/Debit Card:</strong> We accept Visa and Mastercard. All transactions are encrypted and secure.</li>
+            <li><strong>EFT (Electronic Funds Transfer):</strong> Bank transfer details will be provided upon checkout if you select this option.</li>
+            <li><strong>Mobile Payments:</strong> Coming Soon!</li>
+        </ul>
+        <p>Your payment information is always protected, and we do not store sensitive card details on our servers.</p>
+        <p>Enjoy a seamless and secure checkout process with Greens&Things!</p>
+    </div>
 
 
+    <!-- Add these scripts BEFORE your own script.js -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBzYej4P9__rDR8X27eVqEc8baB-nSMR9Q",
+  authDomain: "greens-and-things-1ed5b.firebaseapp.com",
+  projectId: "greens-and-things-1ed5b",
+  storageBucket: "greens-and-things-1ed5b.firebasestorage.app",
+  messagingSenderId: "61805768793",
+  appId: "1:61805768793:web:58ecf557a57cb171418148",
+  measurementId: "G-PGYBHMT3Q3"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

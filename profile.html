@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greens&Things - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo"> <i class="fas fa-tractor"></i> Greens&Things </a>
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="index.html#features">features</a>
+            <a href="index.html#products">products</a>
+            <a href="index.html#categories">categories</a>
+            <a href="index.html#review">review</a>
+            <a href="about.html">about us</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart cart-icon" id="cart-btn">
+                <span class="cart-count">0</span>
+            </div>
+            <a href="profile.html" class="fas fa-user profile-icon profile-icon-active" id="profile-btn"></a>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+            <p id="search-message"></p>
+        </form>
+        <div class="shopping-cart">
+            <div id="cartItems"></div>
+            <div class="total">total: R0.00/-</div>
+            <a href="#" class="btn" id="checkout-btn">Checkout</a>
+        </div>
+        <div class="payment-form">
+            <i class="fas fa-times" id="closePaymentForm"></i>
+            <h3>Checkout</h3>
+            <div class="payment-container">
+                <div class="total-amount">
+                    <p>Total: <span id="checkoutTotal">R0.00</span></p>
+                </div>
+                <div class="payment-details">
+                    <form id="paymentForm">
+                        <div class="delivery-options">
+                            <label>
+                                <input type="radio" name="deliveryOption" value="delivery" checked> Delivery
+                            </label>
+                            <label>
+                                <input type="radio" name="deliveryOption" value="collection"> Collection
+                            </label>
+                        </div>
+                        <div class="address-form">
+                            <h4>Delivery Address</h4>
+                            <input type="text" placeholder="Street Address" class="box" required>
+                            <input type="text" placeholder="City" class="box" required>
+                            <input type="text" placeholder="Province" class="box" required>
+                            <input type="text" placeholder="Postal Code" class="box" pattern="\d{4}" required>
+                        </div>
+                        <h4>Payment Details</h4>
+                        <input type="text" placeholder="Cardholder Name" class="box" required>
+                        <div class="card-number-container">
+                            <input type="text" placeholder="Card Number (16 digits)" class="box card-number" pattern="\d{16}" required>
+                            <img src="pay.jpeg" alt="Payment Methods" class="card-icon visa-icon">
+                           
+                        </div>
+                        <div class="card-details">
+                            <input type="text" placeholder="MM/YY" class="box" pattern="\d{2}/\d{2}" required>
+                            <input type="text" placeholder="CVV (3 digits)" class="box" pattern="\d{3}" required>
+                        </div>
+                        <button type="submit" class="btn">Pay Now</button>
+                    </form>
+                    <p id="paymentMessage"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-page" id="profile">
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="profile-picture">
+                    <img src="https://placehold.co/150x150/cccccc/000000?text=Profile" alt="Profile Picture">
+                    <h3 id="profile-username">Sipho Mbokazi</h3>
+                    <p>Loyal Customer</p>
+                </div>
+                <div class="profile-details">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i><span id="profile-phone">+27 82 123 4567</span></p>
+                    <p><i class="fas fa-envelope"></i><span id="profile-email">sipho.mbokazi@email.com</span></p>
+                </div>
+                <button class="btn" id="edit-profile-btn">Edit Profile</button>
+                <button class="btn" id="logout-btn">Logout</button>
+            </div>
+            <div class="profile-main">
+                <div class="order-section">
+                    <h2>Recent Order</h2>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12345</span>
+                            <span class="status-processing">Processing</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="mango.jpg" alt="Fresh Mango">
+                                <p>Fresh Mango (x2)</p>
+                                <p>R200.00</p>
+                            </div>
+                            <div class="order-item">
+                                <img src="cabbage.jpg" alt="Fresh Cabbage">
+                                <p>Fresh Cabbage (x1)</p>
+                                <p>R20.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R220.00</p>
+                            <button class="btn" id="track-order-btn">Track Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-section">
+                    <h2>Order History</h2>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12301</span>
+                            <span class="status-delivered">Delivered</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="onions.jpg" alt="Fresh Onion">
+                                <p>Fresh Onion (x5)</p>
+                                <p>R50.00</p>
+                            </div>
+                            <div class="order-item">
+                                <img src="potato.png" alt="Fresh Potato">
+                                <p>Fresh Potato (x3)</p>
+                                <p>R27.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R77.00</p>
+                            <button class="btn view-details-btn" data-order-id="GNT-12301">View Details</button>
+                        </div>
+                    </div>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12290</span>
+                            <span class="status-collection">Collected</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="carrots.png" alt="Fresh Carrots">
+                                <p>Fresh Carrots (x2)</p>
+                                <p>R20.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R20.00</p>
+                            <button class="btn view-details-btn" data-order-id="GNT-12290">View Details</button>
+                        </div>
+                    </div>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12258</span>
+                            <span class="status-delivered">Delivered</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="spinach.jpg" alt="Fresh Spinach">
+                                <p>Fresh Spinach (x2)</p>
+                                <p>R20.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R20.00</p>
+                            <button class="btn view-details-btn" data-order-id="GNT-12258">View Details</button>
+                        </div>
+                    </div>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12245</span>
+                            <span class="status-delivered">Delivered</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="broccoli.jpg" alt="Fresh Broccoli">
+                                <p>Fresh Broccoli (x3)</p>
+                                <p>R30.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R30.00</p>
+                            <button class="btn view-details-btn" data-order-id="GNT-12245">View Details</button>
+                        </div>
+                    </div>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <span>Order #GNT-12230</span>
+                            <span class="status-delivered">Delivered</span>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-item">
+                                <img src="corn.png" alt="Fresh Corn">
+                                <p>Fresh Corn (x4)</p>
+                                <p>R20.00</p>
+                            </div>
+                        </div>
+                        <div class="order-footer">
+                            <p>Total: R20.00</p>
+                            <button class="btn view-details-btn" data-order-id="GNT-12230">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-submission-section">
+                    <h2>Leave a Review</h2>
+                    <p>Share your experience with our products and service to help us improve.</p>
+                   <form id="reviewForm">
+                        <div class="review-stars">
+                            <span>Your Rating:</span>
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <textarea placeholder="Write your review here..." required></textarea>
+                        <input type="submit" value="Submit Review" class="btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="feature-modal" id="edit-profile-modal">
+        <span class="fa-times close-feature-modal"></span>
+        <h3>Edit Profile</h3>
+        <form id="editProfileForm">
+            <input type="text" id="edit-username" placeholder="Username" class="box" required>
+            <input type="tel" id="edit-phone" placeholder="Phone Number" class="box" required>
+            <input type="email" id="edit-email" placeholder="Email Address" class="box" required>
+            <p id="edit-profile-message"></p>
+            <input type="submit" value="Save Changes" class="btn">
+        </form>
+    </div>
+
+    <div class="feature-modal" id="order-details-modal">
+        <span class="fa-times close-feature-modal"></span>
+        <h3>Order Details</h3>
+        <div id="order-details-content"></div>
+    </div>
+    
+    <div class="feature-modal" id="order-tracking-modal">
+        <span class="fa-times close-feature-modal" id="close-tracking-modal"></span>
+        <h3>Track Your Order</h3>
+        <div class="map-container" id="map-container">
+            </div>
+        <div class="eta-display" id="eta-display">
+            <p>Your driver is on the way!</p>
+            <p>Estimated Arrival: <span id="eta-time">15</span> minutes</p>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3> Greens&Things <i class="fas fa-shopping-basket"></i> </h3>
+                <p>fresh and organic products for you</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="tel:+6344753340" class="links"> <i class="fas fa-phone"></i> +6344753340 </a>
+                <a href="https://www.ump.ac.za" class="links"> <i class="fas fa-link"></i> www.ump.ac.za </a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="index.html#features" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+                <a href="index.html#products" class="links"> <i class="fas fa-arrow-right"></i> product </a>
+                <a href="index.html#categories" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+                <a href="index.html#review" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+                <a href="about.html" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
+            </div>
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" class="email" placeholder="your email">
+                <input type="submit" value="subscribe" class="btn">
+            </div>
+        </div>
+        <div class="credit"> ©copyright Greens&Things <span> All rights reserved </span> </div>
+    </section>
+
+       <!-- Add these scripts BEFORE your own script.js -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBzYej4P9__rDR8X27eVqEc8baB-nSMR9Q",
+  authDomain: "greens-and-things-1ed5b.firebaseapp.com",
+  projectId: "greens-and-things-1ed5b",
+  storageBucket: "greens-and-things-1ed5b.firebasestorage.app",
+  messagingSenderId: "61805768793",
+  appId: "1:61805768793:web:58ecf557a57cb171418148",
+  measurementId: "G-PGYBHMT3Q3"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>

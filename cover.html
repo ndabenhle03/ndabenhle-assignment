@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greens&Things - Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('umbila.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('umbila.jpg') no-repeat center center/cover;
+            z-index: -1;
+            transform: scale(1.1);
+            transition: transform 0.1s ease;
+        }
+
+        .cover-container {
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            padding: 3rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .title {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 5rem;
+            color: var(--orange);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 10px var(--green);
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .credit {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-top: 1rem;
+            animation: fadeInUp 1.8s ease-in-out;
+        }
+
+        .credit span {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .welcome-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2.5rem 0;
+        }
+
+        .welcome-form input {
+            padding: 1rem;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.85);
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-form input:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 15px var(--orange);
+        }
+
+        .welcome-form input:focus {
+            border-color: var(--green);
+            background: #fff;
+            box-shadow: 0 0 20px var(--orange), 0 0 10px var(--green);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 1.5rem auto;
+            border: none;
+            border-radius: 30px;
+            background: var(--orange);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--green);
+            box-shadow: 0 0 20px var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .shop-btn {
+            background: var(--green);
+        }
+
+        .shop-btn:hover {
+            background: var(--orange);
+        }
+
+        :root {
+            --orange: #ff7800;
+            --green: #28a745;
+            --black: #130f0d;
+            --light-color: #666;
+        }
+
+        #welcome-message {
+            color: #ff4d4d;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--green);
+            opacity: 0.3;
+            transition: all 0.5s ease;
+            z-index: 0;
+        }
+
+        .floating-icon:hover {
+            opacity: 0.7;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3.5rem;
+            }
+
+            .slogan {
+                font-size: 1.5rem;
+            }
+
+            .credit {
+                font-size: 1rem;
+            }
+
+            .cover-container {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .welcome-form input {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+
+            .credit {
+                font-size: 0.9rem;
+            }
+
+            .floating-icon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    <div class="cover-container">
+        <h1 class="title">Greens&Things</h1>
+        <div id="welcome-section">
+            <form id="welcome-form" class="welcome-form">
+                <input type="text" id="welcome-username" placeholder="Your Name" required>
+                <input type="tel" id="welcome-phone" placeholder="Phone Number" required>
+                <input type="email" id="welcome-email" placeholder="Email Address" required>
+                <p id="welcome-message"></p>
+                <input type="submit" value="Get Started" class="btn">
+            </form>
+            <button id="shop-now-btn" class="btn shop-btn" style="display: none;">Shop with Us</button>
+        </div>
+        <p class="slogan">Fresh and Organic Products for You</p>
+        <div class="credit">©copyright Greens&Things <span>All rights reserved</span></div>
+        <i class="fas fa-carrot floating-icon" style="top: 10%; left: 10%; animation: float 6s ease-in-out infinite;"></i>
+        <i class="fas fa-leaf floating-icon" style="bottom: 15%; right: 15%; animation: float 8s ease-in-out infinite;"></i>
+        <i class="fas fa-apple-alt floating-icon" style="top: 20%; right: 20%; animation: float 7s ease-in-out infinite;"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeForm = document.querySelector('#welcome-form');
+            const shopNowBtn = document.querySelector('#shop-now-btn');
+            const welcomeSection = document.querySelector('#welcome-section');
+            const welcomeMessage = document.querySelector('#welcome-message');
+
+            // Check if user has previously submitted details
+            const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+            if (userDetails) {
+                welcomeForm.style.display = 'none';
+                shopNowBtn.style.display = 'inline-block';
+            } else {
+                welcomeForm.style.display = 'flex';
+                shopNowBtn.style.display = 'none';
+            }
+
+            // Handle form submission for first-time users or after profile edit
+            welcomeForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const username = document.querySelector('#welcome-username').value.trim();
+                const phone = document.querySelector('#welcome-phone').value.trim();
+                const email = document.querySelector('#welcome-email').value.trim();
+
+                // Basic validation
+                if (!username) {
+                    welcomeMessage.style.color = '#ff4d4d';
+                    welcomeMessage.textContent = 'Please enter your name.';
+                    return;
+                }
+                if (!/^\+?\d{10,12}$/.test(phone)) {
+                    welcomeMessage.style.color = '#ff4d4d';
+                    welcomeMessage.textContent = 'Please enter a valid phone number.';
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    welcomeMessage.style.color = '#ff4d4d';
+                    welcomeMessage.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+
+                // Save user details to localStorage
+                const userDetails = { username, phone, email };
+                localStorage.setItem('userDetails', JSON.stringify(userDetails));
+
+                // Update profile page with user details
+                const profileUsername = document.querySelector('#profile-username');
+                const profilePhone = document.querySelector('#profile-phone');
+                const profileEmail = document.querySelector('#profile-email');
+                if (profileUsername) profileUsername.textContent = username;
+                if (profilePhone) profilePhone.textContent = phone;
+                if (profileEmail) profileEmail.textContent = email;
+
+                welcomeMessage.style.color = '#28a745';
+                welcomeMessage.textContent = 'Welcome! Redirecting to the shop...';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+
+            // Handle "Shop with Us" button for returning users
+            shopNowBtn.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+
+            // Parallax effect on mouse move
+            document.addEventListener('mousemove', (e) => {
+                const parallax = document.querySelector('.parallax-bg');
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                parallax.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        // Floating animation for icons
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+<!-- Add these scripts BEFORE your own script.js -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBzYej4P9__rDR8X27eVqEc8baB-nSMR9Q",
+  authDomain: "greens-and-things-1ed5b.firebaseapp.com",
+  projectId: "greens-and-things-1ed5b",
+  storageBucket: "greens-and-things-1ed5b.firebasestorage.app",
+  messagingSenderId: "61805768793",
+  appId: "1:61805768793:web:58ecf557a57cb171418148",
+  measurementId: "G-PGYBHMT3Q3"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+    
+</body>
+</html>
